@@ -1,0 +1,123 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: #222;
+
+}
+.container{
+    background-color: #333;
+    width: 400px;
+    padding: 30px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    /* align-items: center; */
+    gap: 10px;
+    border: 1px solid #111;
+    padding-bottom: 70px;
+    -webkit-box-reflect: below 1px linear-gradient(transparent, transparent, #0005);
+    position: relative;
+}
+.container h2{
+    color: #666;
+    font-weight: 500;
+}
+.container .input-box{
+    position: relative;
+}
+.container .input-box input{
+    position: relative;
+    width: 100%;
+    background-color: #222;
+    outline: none;
+    border: none;
+    padding: 10px;
+    color: white;
+    font-size: 1.1em;
+}
+.container .strength-meter{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    background-color: #222;
+    width: 100%;
+    height: 3px;
+}
+.container .strength-meter::before{
+    content: "";
+    position: absolute;
+    width: 0%;
+    height: 100%;
+    transition: 0.5s;
+}
+.container.weak .strength-meter::before{
+    width: 10%;
+    background-color: red;
+    filter: drop-shadow(0 0 5px #f00) drop-shadow(0 0 10px #f00) drop-shadow(0 0 20px #f00);
+}
+.container.medium .strength-meter::before{
+    width: 55%;
+    background-color: #ffa500;
+    filter: drop-shadow(0 0 5px #ffa500) drop-shadow(0 0 10px #ffa500) drop-shadow(0 0 20px #ffa500);
+}
+.container.strong .strength-meter::before{
+    width: 100%;
+    background-color: #0f0;
+    filter: drop-shadow(0 0 5px #0f0) drop-shadow(0 0 10px #0f0) drop-shadow(0 0 20px #0f0);
+}
+.container .strength-meter::after{
+    content: "";
+    position: absolute;
+    top: -45px;
+    left: 30px;
+    color: white;
+    transform: 0.5s;
+}
+.container.weak .strength-meter::after{
+    content: "Weak Password";
+    color: #f00;
+    filter: drop-shadow(0 0 5px #f00); 
+}
+.container.medium .strength-meter::after{
+    content: "Medium Password";
+    color: #ffa500;
+    filter: drop-shadow(0 0 5px #ffa500); 
+    
+}
+.container.strong .strength-meter::after{
+    content: "Strong Password";
+    color: #0f0;
+    filter: drop-shadow(0 0 5px #0f0); 
+
+}
+
+.show{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 60px;
+    height: 100%;
+    background-color: #333;
+    border: 6px solid #222;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.show::before{
+    content: "SHOW";
+    font-size: 0.6em;
+    color: white;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+}
+.show.hide::before{
+    content: "hide";
+}
